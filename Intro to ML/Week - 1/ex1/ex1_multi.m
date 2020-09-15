@@ -79,6 +79,7 @@ X = [ones(m, 1) X];
 % Hint: At prediction, make sure you do the same feature normalization.
 %
 
+
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
@@ -92,6 +93,10 @@ theta = zeros(3, 1);
 % Plot the convergence graph
 figure;
 plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
+plot(1:50, J1(1:50), 'b');
+hold on;
+plot(1:50, J2(1:50), 'r');
+plot(1:50, J3(1:50), 'k');
 xlabel('Number of iterations');
 ylabel('Cost J');
 
