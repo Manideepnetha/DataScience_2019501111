@@ -1,7 +1,7 @@
 function submitWithConfiguration(conf)
   addpath('./lib/jsonlab');
 
-  parts = parts(conf);
+  parts_1 = parts(conf);
 
   fprintf('== Submitting solutions | %s...\n', conf.itemName);
 
@@ -63,9 +63,9 @@ end
 
 function response = submitParts(conf, email, token, parts)
   body = makePostBody(conf, email, token, parts);
-  submissionUrl = submissionUrl();
+  submissionUrl_1 = submissionUrl();
 
-  responseBody = getResponse(submissionUrl, body);
+  responseBody = getResponse(submissionUrl_1, body);
   jsonResponse = validateResponse(responseBody);
   response = loadjson(jsonResponse);
 end
@@ -89,8 +89,8 @@ function partsStruct = makePartsStruct(conf, parts)
   end
 end
 
-function [parts] = parts(conf)
-  parts = {};
+function [parts_1] = parts(conf)
+  parts_1 = {};
   for partArray = conf.partArrays
     part.id = partArray{:}{1};
     part.sourceFiles = partArray{:}{2};
@@ -165,9 +165,6 @@ function printHTMLContents(response)
   strippedResponse = regexprep(strippedResponse, '[\t ]+', ' ');
   fprintf(strippedResponse);
 end
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
